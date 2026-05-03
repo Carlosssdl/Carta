@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Cartita 💗</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Georgia', serif;
+        overflow: hidden;
+    }
+
+    /* 🔹 PORTADA */
+    .portada {
+        background: linear-gradient(135deg, #ffc0cb, #ff9aa2);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+        transition: opacity 1s;
+        position: relative;
+    }
+
+    .portada h1 {
+        font-size: 3em;
+        margin-bottom: 10px;
+    }
+
+    .portada button {
+        margin-top: 20px;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 30px;
+        background: #ff4d6d;
+        color: white;
+        font-size: 1em;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .portada button:hover {
+        transform: scale(1.1);
+    }
+
+    /* 🌷 TULIPÁN */
+    .tulipan {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 40px;
+        animation: flotar 3s ease-in-out infinite;
+    }
+
+    @keyframes flotar {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+
+    /* 🔹 CARTA */
+    .carta-container {
+        display: none;
+        background: linear-gradient(135deg, #ffc0cb, #ff9aa2);
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    .carta {
+        background: #fff0f5;
+        width: 80%;
+        max-width: 600px;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        color: #5a2a2a;
+        line-height: 1.6;
+        position: relative;
+        animation: aparecer 1s ease;
+    }
+
+    @keyframes aparecer {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fecha {
+        text-align: right;
+        font-size: 0.9em;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: #d6336c;
+    }
+
+    .firma {
+        margin-top: 30px;
+        text-align: right;
+        font-style: italic;
+    }
+</style>
+
+</head>
+
+<body>
+
+<!-- 🔹 PORTADA -->
+<div class="portada" id="portada">
+
+    <div class="tulipan">🌷</div>
+
+    <h1>Para mi Cielito 💗</h1>
+    <p>Hoy quiero empezar algo bonito...</p>
+    <button onclick="abrirCarta()">Abrir carta</button>
+</div>
+
+<!-- 🔹 CARTA -->
+<div class="carta-container" id="carta">
+
+    <div class="carta">
+
+        <div class="tulipan">🌷</div>
+
+        <div class="fecha">Día 1</div>
+
+        <h1>Para mi cielito</h1>
+
+        <p>
+            Hola...  
+            Hoy quise hacer algo diferente, algo que no se pierda en mensajes ni en el tiempo, quise escribirlo de una formas más personal, algo para estar presente desde este lado, porque esto caracteriza mi lado romantico con mi lado ingenioso (si lo queremos ver de esta forma), da igual, este espacio no lo hice para mi, lo hice para usted mi vida.
+        </p>
+
+        <p>
+            Esta es la primera de muchas cartas que quiero escribirle, porque la quiero amar a la antigua, a su manera y a la mejor manera, porque me gusta seguir demostrando cariño de una forma mas personal.
+        </p>
+
+        <p>
+            No sé en qué momento empezo a volverse importante para mí,  
+            pero ahora ya no es algo pequeño, es mucho más que eso, porque no en cualquier dinastia se encuentra una mujer como usted, por eso hoy me tome el atrevimiento de decirle que me gusta, que me encanta, y que no dejo de pensar en usted y eso tiene una razon, la cual es que me gusta mucho pensar en usted.
+        </p>
+
+        <p>
+            Y hoy solo queria que supiera eso... La quiero 3 millones.
+        </p>
+
+        <div class="firma">
+            Con cariño💗
+Su gordo.
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function abrirCarta() {
+    document.getElementById("portada").style.opacity = "0";
+
+    setTimeout(() => {
+        document.getElementById("portada").style.display = "none";
+        document.getElementById("carta").style.display = "flex";
+    }, 800);
+}
+</script>
+
+</body>
+</html>
