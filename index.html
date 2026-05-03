@@ -124,6 +124,22 @@
         text-align: right;
         font-style: italic;
     }
+
+    /* 🔥 BOTÓN FIJO (SIEMPRE VISIBLE) */
+    .btn-dia2 {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #ff4d6d;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        cursor: pointer;
+        display: none;
+        z-index: 999;
+    }
+
 </style>
 
 </head>
@@ -147,9 +163,11 @@
 
         <div class="tulipan">🌷</div>
 
-        <div class="fecha">Día 1</div>
+        <div class="fecha" id="fecha">Día 1</div>
 
         <h1>Para mi cielito</h1>
+
+        <div id="texto">
 
         <p>
             Hola...  
@@ -169,6 +187,8 @@
             Y hoy solo quería que supiera eso... La quiero 3 millones.
         </p>
 
+        </div>
+
         <div class="firma">
             Con cariño💗<br>
             Su gordo.
@@ -178,8 +198,12 @@
 
 </div>
 
+<!-- 🔥 BOTÓN GLOBAL -->
+<div class="btn-dia2" id="btnDia2" onclick="cambiarDia()">Día 2 →</div>
+
 <script>
-// 🌷 PÉTALOS SOLO EN PORTADA
+
+// 🌷 PÉTALOS (NO TOCADOS)
 let intervalo = setInterval(crearPetalo, 400);
 
 function crearPetalo() {
@@ -207,8 +231,29 @@ function abrirCarta() {
     setTimeout(() => {
         document.getElementById("portada").style.display = "none";
         document.getElementById("carta").style.display = "flex";
+
+        // 🔥 mostrar botón
+        document.getElementById("btnDia2").style.display = "block";
+
     }, 800);
 }
+
+// 🔥 DÍA 2
+function cambiarDia() {
+
+    document.getElementById("fecha").innerText = "Día 2";
+
+    document.getElementById("texto").innerHTML = `
+        <p>Hola otra vez...</p>
+        <p>Hoy no quería escribir algo largo, solo algo sincero.</p>
+        <p>Me gusta que esté en mi vida, incluso en los días simples.</p>
+        <p>Porque con usted, lo normal se siente especial.</p>
+        <p>Y eso no pasa con cualquiera 💗</p>
+    `;
+
+    document.getElementById("btnDia2").style.display = "none";
+}
+
 </script>
 
 </body>
