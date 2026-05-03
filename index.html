@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Cartita 💗</title>
+<title>Carta 💗</title>
 
 <style>
     body {
@@ -23,6 +23,7 @@
         text-align: center;
         transition: opacity 1s;
         position: relative;
+        overflow: hidden;
     }
 
     .portada h1 {
@@ -58,6 +59,25 @@
     @keyframes flotar {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-10px); }
+    }
+
+    /* 🌸 PÉTALOS */
+    .petalo {
+        position: absolute;
+        top: -20px;
+        font-size: 20px;
+        animation: caer linear infinite;
+        opacity: 0.8;
+        pointer-events: none;
+    }
+
+    @keyframes caer {
+        0% {
+            transform: translateY(0) translateX(0) rotate(0deg);
+        }
+        100% {
+            transform: translateY(100vh) translateX(50px) rotate(360deg);
+        }
     }
 
     /* 🔹 CARTA */
@@ -133,25 +153,25 @@
 
         <p>
             Hola...  
-            Hoy quise hacer algo diferente, algo que no se pierda en mensajes ni en el tiempo, quise escribirlo de una formas más personal, algo para estar presente desde este lado, porque esto caracteriza mi lado romantico con mi lado ingenioso (si lo queremos ver de esta forma), da igual, este espacio no lo hice para mi, lo hice para usted mi vida.
+            Hoy quise hacer algo diferente, algo que no se pierda en mensajes ni en el tiempo, quise escribirlo de una forma más personal, algo para estar presente desde este lado, porque esto caracteriza mi lado romántico con mi lado ingenioso (si lo queremos ver de esta forma), da igual, este espacio no lo hice para mí, lo hice para usted, mi vida.
         </p>
 
         <p>
-            Esta es la primera de muchas cartas que quiero escribirle, porque la quiero amar a la antigua, a su manera y a la mejor manera, porque me gusta seguir demostrando cariño de una forma mas personal.
+            Esta es la primera de muchas cartas que quiero escribirle, porque la quiero amar a la antigua, a su manera y a la mejor manera, porque me gusta seguir demostrando cariño de una forma más personal.
         </p>
 
         <p>
-            No sé en qué momento empezo a volverse importante para mí,  
-            pero ahora ya no es algo pequeño, es mucho más que eso, porque no en cualquier dinastia se encuentra una mujer como usted, por eso hoy me tome el atrevimiento de decirle que me gusta, que me encanta, y que no dejo de pensar en usted y eso tiene una razon, la cual es que me gusta mucho pensar en usted.
+            No sé en qué momento empezó a volverse importante para mí,  
+            pero ahora ya no es algo pequeño, es mucho más que eso, porque no en cualquier dinastía se encuentra una mujer como usted, por eso hoy me tomé el atrevimiento de decirle que me gusta, que me encanta, y que no dejo de pensar en usted, y eso tiene una razón, la cual es que me gusta mucho pensar en usted.
         </p>
 
         <p>
-            Y hoy solo queria que supiera eso... La quiero 3 millones.
+            Y hoy solo quería que supiera eso... La quiero 3 millones.
         </p>
 
         <div class="firma">
-            Con cariño💗
-Su gordo.
+            Con cariño💗<br>
+            Su gordo.
         </div>
 
     </div>
@@ -159,7 +179,29 @@ Su gordo.
 </div>
 
 <script>
+// 🌷 PÉTALOS SOLO EN PORTADA
+let intervalo = setInterval(crearPetalo, 400);
+
+function crearPetalo() {
+    const petalo = document.createElement("div");
+    petalo.classList.add("petalo");
+
+    petalo.innerHTML = "🌷";
+
+    petalo.style.left = Math.random() * 100 + "vw";
+    petalo.style.animationDuration = (4 + Math.random() * 4) + "s";
+    petalo.style.fontSize = (15 + Math.random() * 15) + "px";
+
+    document.getElementById("portada").appendChild(petalo);
+
+    setTimeout(() => {
+        petalo.remove();
+    }, 8000);
+}
+
 function abrirCarta() {
+    clearInterval(intervalo);
+
     document.getElementById("portada").style.opacity = "0";
 
     setTimeout(() => {
